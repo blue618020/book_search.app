@@ -12,7 +12,7 @@ def main():
                              icons=['bi bi-house', 'bi bi-file-earmark', 'bi bi-search'],
                              menu_icon='bi bi-book',
                              default_index=0)
-        print(choice)
+        # print(choice)
     
     if choice == 'Home':
         run_app_home()

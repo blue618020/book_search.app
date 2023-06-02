@@ -7,7 +7,6 @@ def run_app_eda():
     df = pd.read_csv('data/서울특별시교육청남산도서관 장서 대출목록 (2023년 04월).csv',
                      encoding='EUC-KR', low_memory=False, index_col=0)
     df = df.drop(['Unnamed: 13', '세트 ISBN'], axis=1) 
-    print(df)
     if st.checkbox('◀ 클릭'):
         st.dataframe(df)
         
@@ -27,7 +26,9 @@ def run_app_eda():
     df4.loc[122928,'도서명'] = '사피엔스:' # 대출건수 1위의 이름이 너무 길어서 임의로 줄임..
 
     fig = plt.figure(figsize=(10,5))
-    plt.rcParams['font.family']='Malgun Gothic'  # 깨짐 방지 폰트 설정
+
+    plt.rcParams['font.family']='Malgun Gothic' # 깨짐 방지 폰트 설정(맑은고딕은 되는데)
+    # plt.rcParams['font.family']='NanumGothic'  # 나눔고딕 설정 중...
     plt.xticks(rotation = 45)   # 글씨 겹침 방지. x축으로 45도 돌림
     plt.title('대출 건수 순위', fontsize=20)
     plt.bar(df4['도서명'], df4['대출건수'])
