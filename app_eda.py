@@ -13,7 +13,7 @@ def run_app_eda():
 
     st.subheader('가장 대출 건수가 많은 도서 순위🏅')
     number = st.slider('순위 드래그 ▼', min_value=3, max_value=10, step=1, value=5)
-    print(number)  # 원하는 순위 입력받기
+    # print(number)  # 원하는 순위 입력받기
 
     df2 = df.sort_values('대출건수', ascending=False)
     df3 = df2[['대출건수', '도서명', '저자', '출판사', '발행년도', 'ISBN', '부가기호', 
