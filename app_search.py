@@ -12,7 +12,7 @@ def run_app_search():
         st.dataframe(df)
 
 
-    st.subheader('도서 검색')
+    st.subheader('📖도서 검색')
     book_name = st.text_input('찾고싶은 도서명을 입력하세요.')
     if len(book_name) != 0:
         sum = df['도서명'].str.contains(book_name).sum()
@@ -20,7 +20,7 @@ def run_app_search():
         st.dataframe(df.loc[df['도서명'].str.contains(book_name, na=False)])
 
 
-    st.subheader('저자 검색')
+    st.subheader('✍저자 검색')
     writer_name = st.text_input('찾고싶은 저자명을 입력하세요.')
     if len(writer_name) != 0:
         sum = df['저자'].str.contains(writer_name).sum()
@@ -28,7 +28,7 @@ def run_app_search():
         st.dataframe(df.loc[df['저자'].str.contains(writer_name, na=False)])
 
     
-    st.subheader('출판사 검색')
+    st.subheader('📂출판사 검색')
     n_name = st.text_input('찾고싶은 출판사를 입력하세요.')
     if len(n_name) != 0:
         sum = df['출판사'].str.contains(n_name).sum()

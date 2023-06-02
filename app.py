@@ -5,7 +5,7 @@ from app_eda import run_app_eda
 from streamlit_option_menu import option_menu # 사이드바 메뉴 시각화
 
 def main():
-    st.title('남산도서관 도서 검색대')
+    st.title('🔍남산도서관 도서 검색대')
     
     with st.sidebar:  # 사이드바
         choice = option_menu('MENU', ['Home', 'EDA', 'Search'],
