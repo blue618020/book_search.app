@@ -4,9 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 
 def run_app_search():
         
-    df = pd.read_csv('data/서울특별시교육청남산도서관 장서 대출목록 (2023년 04월).csv',
-                     encoding='EUC-KR', low_memory=False, index_col=0)
-    df = df.drop(['Unnamed: 13', '세트 ISBN'], axis=1) 
+    df = pd.read_csv('data/ns_book.csv')
     if st.checkbox('전체 도서 목록 확인'):
         st.dataframe(df)
 
