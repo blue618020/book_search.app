@@ -12,7 +12,7 @@ def run_app_eda():
 
 
 
-    st.subheader('가장 대출 건수가 많은 도서 순위🏅')
+    st.subheader('가장 대출 건수가 많은 도서 순위')
     number = st.slider('순위 드래그 ▼', min_value=3, max_value=10, step=1, value=5)
     # print(number)  # 원하는 순위 입력받기
 
