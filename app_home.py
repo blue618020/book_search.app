@@ -7,8 +7,8 @@ def run_app_home():
 
     st.subheader('사용한 자료')
 
-    st.text('> 서울특별시교육청남산도서관 장서 대출목록 (2023년 04월)')
-    st.text('https://www.data4library.kr/openDataV')
+    st.text('> 도서관 정보나루 : 서울특별시교육청남산도서관 장서 대출목록 (2023년 04월)')
+    st.text('https://www.data4library.kr/openDataL')
 
     st.subheader('제공하는 내용')
     st.text('도서명, 저자, 출판사, 발행년도, ISBN, 부가기호, 권, 주제분류번호, 도서권수, 대출건수, 등록일자')
