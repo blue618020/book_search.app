@@ -20,6 +20,7 @@ def run_app_eda():
 
 
     st.subheader('가장 대출 건수가 많은 도서 순위')
+    st.text('상위 1위부터 10위까지 확인할 수 있습니다.')
     number = st.slider('순위 드래그 ▼', min_value=3, max_value=10, step=1, value=5)
     # print(number)  # 원하는 순위 입력받기
 
@@ -34,7 +35,7 @@ def run_app_eda():
     df3.loc[121616,'도서명'] = '사피엔스:' # 대출건수 1위의 이름이 너무 길어서 임의로 줄임..
     fig = plt.figure(figsize=(10,5))
     # plt.rcParams['font.family']='Malgun Gothic' # 깨짐 방지 폰트 설정(맑은고딕은 되는데)
-    plt.rcParams['font.family']='NanumGothic'  # 나눔고딕은 안돼
+    plt.rcParams['font.family']='NanumGothic'  # 나눔고딕은 여기선 안됨(리눅스 서버에선 됨)
 
     plt.xticks(rotation = 45)   # 글씨 겹침 방지. x축으로 45도 돌림
     plt.title('대출 건수 순위', fontsize=20)
@@ -44,7 +45,8 @@ def run_app_eda():
 
 
     st.subheader('연도별 발행된 도서 수')
-    st.text('> 데이터의 첫 시작 연도인 1948년부터 2023년까지')
+    st.text('> 데이터의 첫 시작 연도인 1948년부터 2023년까지 확인할 수 있습니다.')
+    st.text('그래프 안 숫자는 3년 단위로 나오는 도서 수 입니다.')
     count_by_year = df['발행년도'].value_counts().sort_index()
     count_by_year = count_by_year[count_by_year.index <= 2023]
 
@@ -58,6 +60,9 @@ def run_app_eda():
     plt.ylabel('books')
     st.pyplot(fig2)
 
+    # print(count_by_year.max())
+    st.text('= 가장 많이 발행된 도서 수는 2014년에 '+ str(count_by_year.max()) + '권 입니다.')
+
 
     st.subheader('출판사별 발행된 도서 수')
     st.text('> 전체 출판사 중 발행된 도서 수가 많은 상위 20개의 출판사 목록만 제공합니다.')
@@ -68,6 +73,8 @@ def run_app_eda():
 
     st.dataframe(top20_df)
     st.bar_chart(top20)
+    #print(top20.max())
+    st.text('= 가장 많이 도서를 발행한 출판사는 '+ str(top20.max()) +'권의 문학동네 입니다.')
 
 
     # 보려는 출판사를 선택하고 차트로 그려내기(잠깐보류)
@@ -75,8 +82,8 @@ def run_app_eda():
     # print(top20_list) 
 
 
-
-    import matplotlib
-    print(matplotlib.__version__) # matplotlib 버전확인
-    print(matplotlib.__file__) # 설치 폴더 경로 확인
-    print(matplotlib.get_cachedir()) # 캐시 폴더 경로 확인
+    # 폰트 저장경로 확인한거
+    # import matplotlib
+    # print(matplotlib.__version__) # matplotlib 버전확인
+    # print(matplotlib.__file__) # 설치 폴더 경로 확인
+    # print(matplotlib.get_cachedir()) # 캐시 폴더 경로 확인
