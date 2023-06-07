@@ -54,7 +54,7 @@ def run_app_eda():
 
 
     st.subheader('출판사별 발행된 도서')
-    st.text('> 1948 ~ 2023년까지')
+    st.text('(작업중)')
     top20 = df['출판사'][:20] 
     column_list = st.multiselect('컬럼을 선택하세요',top20)
     print(column_list)
