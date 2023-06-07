@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def run_app_eda():
     st.subheader('전체 도서 목록 확인📚')
-    df = pd.read_csv('data/ns_book.csv')
+    df = pd.read_csv('data/ns_book.csv', low_memory=False)
     if st.checkbox('◀ 클릭'):
         st.dataframe(df)
         

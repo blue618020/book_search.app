@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 
 def run_app_search():
         
-    df = pd.read_csv('data/ns_book.csv')
+    df = pd.read_csv('data/ns_book.csv', low_memory=False)
     if st.checkbox('전체 도서 목록 확인'):
         st.dataframe(df)
 
