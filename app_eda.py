@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Streamlit File *.py
+import platform
+from matplotlib import font_manager, rc
+plt.rcParams['axes.unicode_minus'] = False
+if platform.system() == 'Linux':
+    rc('font', family='NanumGothic')
+
 def run_app_eda():
     st.subheader('전체 도서 목록 확인📚')
     df = pd.read_csv('data/ns_book.csv', low_memory=False)
@@ -26,8 +33,8 @@ def run_app_eda():
     df3 = df2.head(number)
     df3.loc[121616,'도서명'] = '사피엔스:' # 대출건수 1위의 이름이 너무 길어서 임의로 줄임..
     fig = plt.figure(figsize=(10,5))
-    plt.rcParams['font.family']='Malgun Gothic' # 깨짐 방지 폰트 설정(맑은고딕은 되는데)
-    #plt.rcParams['font.family']='NanumGothic'  # 나눔고딕은 안돼
+    # plt.rcParams['font.family']='Malgun Gothic' # 깨짐 방지 폰트 설정(맑은고딕은 되는데)
+    plt.rcParams['font.family']='NanumGothic'  # 나눔고딕은 안돼
 
     plt.xticks(rotation = 45)   # 글씨 겹침 방지. x축으로 45도 돌림
     plt.title('대출 건수 순위', fontsize=20)
@@ -69,7 +76,7 @@ def run_app_eda():
 
 
 
-    # import matplotlib
-    # print(matplotlib.__version__) # matplotlib 버전확인
-    # print(matplotlib.__file__) # 설치 폴더 경로 확인
-    # print(matplotlib.get_cachedir()) # 캐시 폴더 경로 확인
+    import matplotlib
+    print(matplotlib.__version__) # matplotlib 버전확인
+    print(matplotlib.__file__) # 설치 폴더 경로 확인
+    print(matplotlib.get_cachedir()) # 캐시 폴더 경로 확인
