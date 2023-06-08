@@ -3,12 +3,12 @@ import streamlit as st
 def run_app_home():
     st.text('- 이 앱은 서울특별시교육청 남산도서관의 장서 대출목록을 검색할 수 있는 앱 대시보드입니다.')
     st.text('- 데이터셋을 이용해 도서명, 저자, 출판사 검색을 지원합니다.')
-    st.text('- 남산도서관 홈페이지 : https://nslib.sen.go.kr/')
+    st.markdown('- 남산도서관 홈페이지 : '+'https://nslib.sen.go.kr/')
+    # 링크넣기 markdown
 
     st.subheader('사용한 자료')
-
+    st.markdown('https://www.data4library.kr/openDataL')
     st.text('> 도서관 정보나루 : 서울특별시교육청남산도서관 장서 대출목록 (2023년 04월)')
-    st.text('https://www.data4library.kr/openDataL')
 
     st.subheader('제공하는 내용')
     st.text('도서명, 저자, 출판사, 발행년도, ISBN, 부가기호, 권, 주제분류번호, 도서권수, 대출건수, 등록일자')
