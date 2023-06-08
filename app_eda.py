@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 # 한글폰트 설정 코드
 # Streamlit File *.py
@@ -13,7 +14,8 @@ if platform.system() == 'Linux':
 def run_app_eda():
     st.subheader('전체 도서 목록 확인📚')
     df = pd.read_csv('data/ns_book.csv', low_memory=False)
-    st.dataframe(df)    
+    st.dataframe(df)  
+    st.text('= 426795 rows × 11 columns')  
 
     st.subheader('기본 통계 데이터')
     st.dataframe(df.describe())
@@ -67,20 +69,16 @@ def run_app_eda():
 
     st.subheader('출판사별 발행된 도서 수')
     st.text('> 전체 출판사 중 발행된 도서 수가 많은 상위 20개의 출판사 목록만 제공합니다.')
+    st.text('그래프에 마우스 커서를 올리면 출판사 이름과 개수를 확인할 수 있습니다.')
     top20 = df['출판사'].value_counts()[:20] # 상위 20개 출판사 목록
     top20_df = top20.to_frame()  # 데이터팜으로 만듬
     top20_df.reset_index(inplace=True)  # 인덱스초기화
     top20_df.columns = ['출판사', '개수']  # 컬럼 이름 변경
 
-    st.dataframe(top20_df)
-    st.bar_chart(top20)
-    #print(top20.max())
+    fig4 = px.pie(top20_df, '출판사', '개수', title='출판사 도서 비율')
+    st.plotly_chart(fig4)
     st.text('= 가장 많이 도서를 발행한 출판사는 '+ str(top20.max()) +'권의 문학동네 입니다.')
 
-
-    # 보려는 출판사를 선택하고 차트로 그려내기(잠깐보류)
-    # top20_list = st.multiselect('출판사를 선택하세요', top20_df['출판사'])
-    # print(top20_list) 
 
 
     # 폰트 저장경로 확인한 코드
