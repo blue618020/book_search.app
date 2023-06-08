@@ -14,8 +14,8 @@ if platform.system() == 'Linux':
 def run_app_eda():
     st.subheader('전체 도서 목록 확인📚')
     df = pd.read_csv('data/ns_book.csv', low_memory=False)
-    st.dataframe(df)  
-    st.text('= 426795 rows × 11 columns')  
+    st.dataframe(df[:10])  
+    st.text('= 전체 426795 rows × 11 columns')  
 
     st.subheader(' ') # 간격띄움
 
