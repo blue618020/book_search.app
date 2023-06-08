@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# 한글폰트 설정 코드
 # Streamlit File *.py
 import platform
 from matplotlib import font_manager, rc
@@ -82,7 +83,7 @@ def run_app_eda():
     # print(top20_list) 
 
 
-    # 폰트 저장경로 확인한거
+    # 폰트 저장경로 확인한 코드
     # import matplotlib
     # print(matplotlib.__version__) # matplotlib 버전확인
     # print(matplotlib.__file__) # 설치 폴더 경로 확인
