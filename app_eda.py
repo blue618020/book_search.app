@@ -17,10 +17,14 @@ def run_app_eda():
     st.dataframe(df)  
     st.text('= 426795 rows × 11 columns')  
 
+    st.subheader(' ') # 간격띄움
+
     st.subheader('기본 통계 데이터')
     st.dataframe(df.describe())
 
 
+    st.subheader(' ')
+    st.subheader(' ') # 간격띄움
 
     st.subheader('가장 대출 건수가 많은 도서 순위')
     st.text('상위 1위부터 10위까지 확인할 수 있습니다.')
@@ -46,6 +50,8 @@ def run_app_eda():
     st.pyplot(fig)
 
 
+    st.subheader(' ')
+    st.subheader(' ') # 간격띄움
 
     st.subheader('연도별 발행된 도서 수')
     st.text('> 데이터의 첫 시작 연도인 1948년부터 2023년까지 확인할 수 있습니다.')
@@ -66,6 +72,9 @@ def run_app_eda():
     # print(count_by_year.max())
     st.text('= 가장 많이 발행된 도서 수는 2014년에 '+ str(count_by_year.max()) + '권 입니다.')
 
+
+    st.subheader(' ')
+    st.subheader(' ') # 간격띄움
 
     st.subheader('출판사별 발행된 도서 수')
     st.text('> 전체 출판사 중 발행된 도서 수가 많은 상위 20개의 출판사 목록만 제공합니다.')
